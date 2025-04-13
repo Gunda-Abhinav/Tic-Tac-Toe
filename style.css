@@ -1,0 +1,179 @@
+/* Background and base styles */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    animation: pulseBg 10s infinite alternate ease-in-out;
+    background: black;
+    color: #fff;
+    overflow: hidden;
+}
+
+#aurora-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background: black;
+    pointer-events: none;
+}
+
+/* Cinematic pulse */
+@keyframes pulseBg {
+    0% {
+        filter: brightness(0.7) saturate(1.2);
+    }
+
+    100% {
+        filter: brightness(1.2) saturate(1.5);
+    }
+}
+
+/* Game Container */
+.container {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+}
+
+/* Game board */
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    gap: 10px;
+    margin: 20px auto;
+}
+
+/* Each cell */
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+}
+
+.cell:hover {
+    transform: scale(1.1);
+    background: #444;
+}
+
+/* Winner animation */
+.winner {
+    animation: winnerFlash 1s ease-in-out infinite;
+}
+
+@keyframes winnerFlash {
+
+    0%,
+    100% {
+        background: gold;
+        color: black;
+    }
+
+    50% {
+        background: red;
+        color: white;
+    }
+}
+
+/* Buttons */
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    background-color: #ff4081;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #e91e63;
+}
+
+/* Status */
+.status {
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+
+/* Popup Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    z-index: 10;
+}
+
+.popup {
+    background-color: rgba(34, 34, 34, 0.9);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 0 20px #fff;
+    text-align: center;
+    animation: popupFade 0.5s ease-out;
+}
+
+@keyframes popupFade {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.popup h2 {
+    color: gold;
+    margin-bottom: 20px;
+}
+
+.moving-shadow {
+    animation: boxShadowMove 2s infinite linear;
+}
+
+@keyframes boxShadowMove {
+    0% {
+        box-shadow: 2px 2px 10px rgba(0, 255, 255, 0.6);
+    }
+
+    25% {
+        box-shadow: -2px 2px 10px rgba(255, 0, 255, 0.6);
+    }
+
+    50% {
+        box-shadow: -2px -2px 10px rgba(255, 255, 0, 0.6);
+    }
+
+    75% {
+        box-shadow: 2px -2px 10px rgba(0, 255, 0, 0.6);
+    }
+
+    100% {
+        box-shadow: 2px 2px 10px rgba(0, 255, 255, 0.6);
+    }
+}
