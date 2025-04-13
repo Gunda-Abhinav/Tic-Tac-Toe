@@ -1,5 +1,9 @@
 # Tic-Tac-Toe
 
+
+A simple Tic-Tac-Toe game built with HTML, CSS, and JavaScript.
 Live Demo: https://gunda-abhinav.github.io/Tic-Tac-Toe/
 
-Feel Free to enhace the code for better experience!
+🧠 Play against a friend  
+📱 Fully responsive  
+⚡ No frameworks – just pure frontend!
